@@ -39,6 +39,14 @@ public class AnimElevator : MonoBehaviour
             currentFloor = 2;
         }
     }
+    public void GroundUpToThirdFloor()
+    {
+        if (currentFloor == 0)
+        {
+            anim.SetTrigger("0up3");
+            currentFloor = 3;
+        }
+    }
 
     public void FirstUpToSecondFloor()
     {
@@ -46,6 +54,24 @@ public class AnimElevator : MonoBehaviour
         {
             anim.SetTrigger("1up2");
             currentFloor = 2;
+        }
+    }
+
+    public void FirstUpToThirdFloor()
+    {
+        if (currentFloor == 1)
+        {
+            anim.SetTrigger("1up3");
+            currentFloor = 3;
+        }
+    }
+
+    public void SecondToThirdFloor()
+    {
+        if (currentFloor == 2)
+        {
+            anim.SetTrigger("2up3");
+            currentFloor = 3;
         }
     }
 
@@ -74,6 +100,34 @@ public class AnimElevator : MonoBehaviour
         {
             anim.SetTrigger("2down0");
             currentFloor = 0;
+        }
+    }
+
+
+    public void ThirdDownToGroundFloor()
+    {
+        if (currentFloor == 3)
+        {
+            anim.SetTrigger("3down0");
+            currentFloor = 0;
+        }
+    }
+
+    public void ThirdDownToFirsFloor()
+    {
+        if (currentFloor == 3)
+        {
+            anim.SetTrigger("3down1");
+            currentFloor = 1;
+        }
+    }
+
+    public void ThirdDownToSecondFloor()
+    {
+        if (currentFloor == 3)
+        {
+            anim.SetTrigger("3down2");
+            currentFloor = 2;
         }
     }
 
