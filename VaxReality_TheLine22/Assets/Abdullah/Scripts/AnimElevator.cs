@@ -13,6 +13,9 @@ public class AnimElevator : MonoBehaviour
     public GameObject xr;
     public GameObject image;
 
+    public AudioSource aud;
+    public AudioClip elevator;
+
 
     private void Start()
     {
@@ -27,6 +30,7 @@ public class AnimElevator : MonoBehaviour
             image.SetActive(true);
             anim.SetTrigger("0up1");
             currentFloor = 1;
+            StartCoroutine(ElevatorSound());
         }
 
 
@@ -54,6 +58,7 @@ public class AnimElevator : MonoBehaviour
         {
             anim.SetTrigger("1up2");
             currentFloor = 2;
+            StartCoroutine(ElevatorSound2());
         }
     }
 
@@ -72,6 +77,7 @@ public class AnimElevator : MonoBehaviour
         {
             anim.SetTrigger("2up3");
             currentFloor = 3;
+            StartCoroutine(ElevatorSound3());
         }
     }
 
@@ -145,5 +151,23 @@ public class AnimElevator : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         xr.transform.parent = null;
+    }
+
+    IEnumerator ElevatorSound()
+    {
+        yield return new WaitForSeconds(11);
+        aud.PlayOneShot(elevator);
+    }
+
+    IEnumerator ElevatorSound2()
+    {
+        yield return new WaitForSeconds(16f);
+        aud.PlayOneShot(elevator);
+    }
+
+    IEnumerator ElevatorSound3()
+    {
+        yield return new WaitForSeconds(16);
+        aud.PlayOneShot(elevator);
     }
 }
